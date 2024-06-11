@@ -1,0 +1,35 @@
+@startuml
+
+class DEU{
+ Facultad facultades[]  
+
+ void enviarRespuesta()
+ bool validarSolicitud()
+ Curso RecibirSolicitud()
+} 
+class Proponente{
+
+ int CI
+ int RIF
+ Curso enviarSolicitud()
+
+}
+
+class CEF{
+ string nombre
+ enum especialidad[]
+ bool validarSolicitud()
+}
+
+class Curso{
+ enum especialidad
+ int horas
+ enum tipo
+ 
+}
+
+Proponente -- DEU
+DEU --* CEF
+Proponente -- Curso
+
+@enduml
