@@ -1,0 +1,51 @@
+@startuml
+hide empty description
+state DEU <<start>>
+state "Mostrar propuestas de cursos" as mpc
+state "Mostrar detalles de propuesta" as mdp
+state "Validar formulario de curso" as vfc
+state "Validar credenciales" as vc
+state "Validar probidad de proponente" as vpp
+state "Curso aprobado" as ca
+state "Curso en revision por Comision de Extension" as crce
+state "Curso en revison por CF" as crcf
+
+
+state "Credenciales invalidas" as cri
+state "Formulario no apto" as fna
+state "Curso rechazado" as cr
+state "Proponente no apto" as pna
+
+state fork <<fork>>
+state c <<choice>> 
+state join <<join>>
+state end <<end>>
+
+[*] --> mpc : CE solicita revision de cursos
+DEU --> mpc : DEU solicita\n revision de cursos 
+mpc --> mdp : Se selecciona una propuesta
+mdp --> vfc : Se inicia el proceso de\n validacion de la propuesta
+vfc --> fork : Formulario valido
+vfc --> fna : No cumple con el estandar
+fna --> cr 
+fork --> vc : CE valida las credenciales
+fork --> vpp : DEU valida al proponente
+vc --> cri : No posee suficiente\n credibilidad
+cri --> cr
+vpp --> join : DEU aprueba al proponente
+vpp --> pna
+pna --> cr
+vc --> join : Credenciales validas
+join --> c
+c --> ca
+c --> crce : Necesita aprobacion\n de la comision
+c --> crcf : La propuesta es un diplomado
+crcf --> ca
+crce --> ca
+crcf --> cr : No cumple con el\n estandar de la facultad
+crce --> cr : No cumple las espectativas 
+cr --> [*]
+ca --> end
+
+
+@enduml

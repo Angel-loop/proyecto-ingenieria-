@@ -1,0 +1,16 @@
+@startuml
+hide empty description
+state "Solicitar aval tecnico" as sa
+state "Actualizar estado de\n proponente a aliado" as ae
+state "Curso incluido en carta de intencion" as ci
+state c <<choice>>
+
+[*] --> sa : Se aprueba un curso
+sa --> c
+c --> ae : se otorga el aval tecnico
+c --> sa : se rechazo el aval tecnico
+ae --> ci
+ci --> [*]
+
+
+@enduml

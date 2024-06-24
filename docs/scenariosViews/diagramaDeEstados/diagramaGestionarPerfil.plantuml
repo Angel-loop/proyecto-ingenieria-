@@ -1,0 +1,16 @@
+@startuml
+hide empty description
+state "Mostrar dashboard" as md
+state "Actualizar vista" as av
+state "Error de actualizacion" as ev
+
+state c <<choice>> 
+
+[*] --> md : Al iniciar sesion\n se solicita el dashboard
+md --> c : Se registra un click hacia una opcion
+c --> av : Se redirecciona hacia la vista deseada
+c --> ev : Error de respuesta del servidor
+ev --> md : se redirecciona al dashboard
+av --> [*]
+
+@enduml

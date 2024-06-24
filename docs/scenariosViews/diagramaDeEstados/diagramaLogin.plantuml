@@ -1,0 +1,15 @@
+@startuml
+hide empty description
+state "Esperar datos de login" as lg
+state "Validacion de login" as clg <<choice>>
+state "Mostrar perfil de usuario" as slg
+state "Login invalido" as flg
+
+
+[*]--> lg: Solicitud de registro
+lg --> clg : Se ingresan los datos
+clg --> slg : Login exitoso
+clg --> flg: Datos de login incorrectos
+flg --> lg
+slg--> [*]
+@enduml

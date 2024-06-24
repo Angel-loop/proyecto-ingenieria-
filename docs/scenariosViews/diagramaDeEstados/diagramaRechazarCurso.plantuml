@@ -1,0 +1,15 @@
+@startuml
+hide empty description
+state "Justificar rechazo" as jr
+state "Notificar proponente" as np
+state "Justificacion invalida" as jv
+
+state c <<choice>> 
+
+[*] --> jr : Se rechazo un curso
+jr --> c 
+c --> np : Justificacion valida
+c --> jv : No se justifico el rechazo
+jv --> jr
+np --> [*]
+@enduml

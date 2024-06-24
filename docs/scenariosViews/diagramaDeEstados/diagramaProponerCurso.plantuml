@@ -1,0 +1,18 @@
+@startuml
+hide empty description
+state "Mostrar formulario" as mf
+state "Validar formulario" as vf
+state "Formulario valido" as fv
+state "Formulario invalido" as fi
+state "Formulario en revision" as fr
+state cf <<choice>>
+
+[*] --> mf : Usuario solicita formulario 
+mf --> vf : Se envia el formulario\n con los datos
+vf --> cf
+cf --> fv  : Validacion exitosa 
+cf --> fi : Datos invalidos
+fi --> mf  
+fv --> fr : se carga el formulario al sistema
+fr --> [*]
+@enduml

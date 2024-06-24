@@ -1,0 +1,15 @@
+@startuml
+hide empty description
+state "Esperar datos de registro" as ed
+state "Validacion de datos" as c <<choice>>
+state "Registro exitoso" as sr
+state "Registro erroneo" as fr
+
+
+[*]--> ed : Solicitud de registro
+ed --> c : Se ingresan y validan los datos
+c --> sr : Validacion exitosa
+c--> fr: Datos de registro incorrectos
+fr --> ed
+sr--> [*]
+@enduml

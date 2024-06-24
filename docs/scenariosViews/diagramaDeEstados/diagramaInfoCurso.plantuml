@@ -1,0 +1,15 @@
+@startuml
+hide empty description
+state "Espera de datos" as ed
+state "Datos erroneos" as de
+state "Enviar informacion" as ei
+
+state c <<choice>>
+
+[*] --> ed : Una vez aprobado el curso el\n sistema solicita la\n informacion financiera
+ed --> c
+c -->  de : Informacion incompleta
+de --> ed
+c --> ei : Informacion valida
+ei --> [*]
+@enduml
