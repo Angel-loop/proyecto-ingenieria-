@@ -1,0 +1,37 @@
+# Herramientas móviles para Java (J2ME)
+.mtj.tmp /
+
+# Archivos del paquete #
+* .frasco
+* .guerra
+* .oreja
+
+# registros de fallos de la máquina virtual, consulte http://www.java.com/en/download/help/error_hotspot.xml
+error hs_err_pid *
+
+#Eclipse​
+.ruta de clase
+.proyecto
+.ajustes /
+
+#Intelij​
+.idea /
+* .iml
+* .iws
+
+# Mac
+Tienda .DS_Store
+
+#Maven​
+registro /
+objetivo /
+
+# Inclusiones
+! lib / **
+
+# Archivos compilados
+* .clase
+papelera /
+construir /
+/ bin1 /
+java / compilación / **
