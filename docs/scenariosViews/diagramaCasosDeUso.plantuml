@@ -1,49 +1,43 @@
 @startuml
-left to right direction
-actor "Proponentes" as P
-actor "Coordinación de Extensión" as CE
-actor "Dirección de Extensión" as DE
-actor "Aliado" as A
-actor "Comisión de Extensión" as CME
-actor "Consejo de Facultad" as CF
-rectangle Sistema{
-usecase "Iniciar sesión" as UC1
-usecase "Registro" as UC2
-usecase "Proponer curso" as UC3
-usecase "Validar curso" as UC4
-usecase "Aprobar curso" as UC5
-usecase "Presentar información del curso" as UC6
-usecase "Rechazar curso" as UC7
-usecase "Gestionar Perfil" as UC8
-P --> UC1
-P --> UC2
-P --> UC3
-DE --> UC1
-UC1 <-- CE
-UC4 <-- CE
-DE --> UC4
-UC5 <-- CE
-DE --> UC5
-UC6 <-- A
-UC1 <-- A
-UC1 <-- CME
-CF --> UC1
-UC2 <-- CME
-CF --> UC2
-DE --> UC2
-UC2 <-- CE
-UC4 <-- CME
-CF --> UC4
-CF --> UC5
-UC7 <-- CE
-DE --> UC7
-CF --> UC7
-CF --> UC8
-DE --> UC8
-UC8 <-- CE
-UC8 <-- A
-P --> UC8
-UC8 <-- CME
+left to right direction 
+
+
+
+rectangle Usuario{
+actor Proponente as p
+actor Aliado as a
+package "Admin"{
+actor "Direccion de extension" as de
+actor "Consejo de Facultad" as cf
+actor "Comision de Extension" as ce
+actor "Coordinacion de Extension" as co
 }
+}
+
+rectangle Sistema{
+usecase Registro as UC1
+usecase "Inicio de sesion" as UC2
+usecase "Gestionar perfil" as UC3
+usecase "Proponer curso" as UC4
+usecase "Presentar informacion del curso" as UC5
+usecase "Validar curso" as UC6
+usecase "Rechazar curso" as UC7
+usecase "Aprobar curso" as UC8
+usecase "Clasificar curso" as UC9
+
+}
+
+Usuario --> UC1
+Usuario --> UC2
+Usuario --> UC3
+p --> UC4
+p --> UC5
+Admin --> UC6
+Admin --> UC7
+Admin --> UC8
+Admin --> UC9
+
+
+
 
 @enduml
