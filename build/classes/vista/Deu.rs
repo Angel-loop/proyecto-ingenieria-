@@ -1,0 +1,11 @@
+Deu$10
+Deu$9
+Deu$8
+Deu
+Deu$5
+Deu$4
+Deu$7
+Deu$6
+Deu$1
+Deu$3
+Deu$2

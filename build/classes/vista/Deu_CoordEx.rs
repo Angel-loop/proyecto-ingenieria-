@@ -1,0 +1,12 @@
+Deu_CoordEx
+Deu_CoordEx$7
+Deu_CoordEx$8
+Deu_CoordEx$9
+Deu_CoordEx$3
+Deu_CoordEx$11
+Deu_CoordEx$4
+Deu_CoordEx$10
+Deu_CoordEx$5
+Deu_CoordEx$6
+Deu_CoordEx$1
+Deu_CoordEx$2
